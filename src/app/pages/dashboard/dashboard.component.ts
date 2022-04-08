@@ -18,5 +18,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  verMas(foto: FotoNasa) {}
+  verMas(foto: FotoNasa) {
+    this.router.navigateByUrl("/detalle")
+  }
 }
