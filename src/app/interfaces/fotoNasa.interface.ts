@@ -1,4 +1,4 @@
-export interface PhotoNasa {
+export interface FotoNasa {
   date: Date;
   explanation: string;
   hdurl: string;
