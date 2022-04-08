@@ -19,7 +19,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ item.title }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ item.date }}</h6>
-            <a href="#" class="btn btn-primary">Ver más...</a>
+            <a [routerLink]="['/detalles',item]" class="btn btn-primary">Ver más...</a>
           </div>
         </div>
       </div>
