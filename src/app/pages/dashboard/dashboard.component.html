@@ -1,28 +1,11 @@
-<div class="row row-cols-3 m-2">
+<div class="d-flex justify-content-center">
+  <h1>Astronomy Picture of the Day</h1>
+</div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 m-2">
   <div
     class="col d-flex justify-content-center"
     *ngFor="let item of listaFotos"
   >
-    <div
-      class="card mt-5 animate__animated animate__zoomIn w-100"
-      style="width: 18rem"
-    >
-      <div class="row g-0">
-        <div class="col-md-7 ">
-          <img
-            [src]="item.url"
-            class="img-fluid rounded-start imgDashboard"
-            alt="..."
-          />
-        </div>
-        <div class="col-md-5">
-          <div class="card-body">
-            <h5 class="card-title">{{ item.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ item.date }}</h6>
-            <a [routerLink]="['/detalles',item]" class="btn btn-primary">Ver más...</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-tarjeta [item]="item"></app-tarjeta>
   </div>
 </div>

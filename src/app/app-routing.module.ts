@@ -10,10 +10,10 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'detalles',
+    path: 'detalles/:title',
     component: DetalleComponent,
-    //canActivate: [ValidarRutaGuard],
-  //  canLoad: [ValidarRutaGuard],
+    canActivate: [ValidarRutaGuard],
+    canLoad: [ValidarRutaGuard],
   },
   {
     path: '**',

@@ -1,1 +1,12 @@
-<p>detalle works!</p>
+<div class="row row-cols-1 row-cols-lg-2 m-5">
+  <div class="col" >
+    <img [src]="foto.url" class="img-fluid" >
+  </div>
+  <div class="col">
+    <h2>{{foto.title}}</h2>
+    <span class="text-muted fw-bold">{{foto.date}}</span>
+    <p>{{foto.explanation}}</p>
+    
+  <button [routerLink]="['/']" class="btn btn-danger float-end"><i class="bi bi-arrow-left"></i> Regresar</button>
+  </div>
+</div>
