@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FotoNasa } from 'src/app/interfaces/fotoNasa.interface';
-import { UtilidadesService } from 'src/app/services/utilidades.service';
 
 @Component({
   selector: 'app-tarjeta',
@@ -9,8 +8,8 @@ import { UtilidadesService } from 'src/app/services/utilidades.service';
   ]
 })
 export class TarjetaComponent implements OnInit {
-@Input() item!:FotoNasa
-  constructor(private utilidadS: UtilidadesService) { }
+  @Input() item: FotoNasa = {}
+  constructor() { }
 
   ngOnInit(): void {
   }

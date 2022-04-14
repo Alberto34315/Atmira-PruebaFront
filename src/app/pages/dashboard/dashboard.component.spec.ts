@@ -1,16 +1,21 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { DashboardComponent } from './dashboard.component';
 
-describe('DashboardComponent', () => {
+describe('Pruebas en el "DashboardComponent"', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      imports: [
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      declarations: [DashboardComponent],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +24,12 @@ describe('DashboardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Debe haberse creado correctamente', () => {
     expect(component).toBeTruthy();
   });
+
+  it('La longitud del array debe ser 0', () => {   
+    expect(component.listaFotos).toHaveSize(0);
+  });
+  
 });

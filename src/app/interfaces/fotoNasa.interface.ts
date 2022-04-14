@@ -1,5 +1,5 @@
 export interface FotoNasa {
-  date?: Date;
+  date?: string;
   explanation?: string;
   hdurl?: string;
   media_type?: string;

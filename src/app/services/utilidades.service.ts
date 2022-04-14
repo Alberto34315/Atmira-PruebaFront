@@ -8,10 +8,16 @@ export class UtilidadesService {
   private listaFotos: FotoNasa[] = []
   constructor() { }
 
-  recogerFotos(lista: FotoNasa[]) {
+  recogerFotos(lista: FotoNasa[]): boolean {
+    let flag = false;
     this.listaFotos = lista;
-    localStorage.setItem("fotos", JSON.stringify(this.listaFotos))
+    if (this.listaFotos.length > 0) {
+      localStorage.setItem("fotos", JSON.stringify(this.listaFotos))
+      flag = true
+    }
+    return flag;
   }
+  
   buscarFoto(title: string): boolean {
     let flag = false;
     this.listaFotos = JSON.parse(localStorage.getItem("fotos") || "")

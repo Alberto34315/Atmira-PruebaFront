@@ -1,8 +1,10 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { TarjetaComponent } from './tarjeta.component';
 
-describe('TarjetaComponent', () => {
+describe('Pruebas en el "TarjetaComponent"', () => {
   let component: TarjetaComponent;
   let fixture: ComponentFixture<TarjetaComponent>;
 
@@ -19,7 +21,11 @@ describe('TarjetaComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Debe haberse creado correctamente', () => {
     expect(component).toBeTruthy();
+  });
+  
+  it('El objeto item de tipo FotoNasa debe estar vacío {}', () => {
+    expect(component.item).toEqual({});
   });
 });
