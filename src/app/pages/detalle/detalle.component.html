@@ -1,12 +1,24 @@
 <div class="row row-cols-1 row-cols-lg-2 m-5">
-  <div class="col" >
-    <img [src]="foto.url" class="img-fluid" >
+  <div *ngIf="(foto | json) == '{}'; then thenBlock; else elseBlock"></div>
+</div>
+
+<ng-template #thenBlock>
+  <div class="col-12 d-flex justify-content-center align-items-center">
+   <app-load-spinner></app-load-spinner>
+  </div>
+</ng-template>
+
+<ng-template #elseBlock>
+  <div class="col">
+    <img [src]="foto.url" class="img-fluid" />
   </div>
   <div class="col">
-    <h2>{{foto.title}}</h2>
-    <span class="text-muted fw-bold">{{foto.date}}</span>
-    <p>{{foto.explanation}}</p>
-    
-  <button [routerLink]="['/']" class="btn btn-danger float-end"><i class="bi bi-arrow-left"></i> Regresar</button>
+    <h2>{{ foto.title }}</h2>
+    <span class="text-muted fw-bold">{{ foto.date }}</span>
+    <p>{{ foto.explanation }}</p>
+
+    <button [routerLink]="['/']" class="btn btn-danger float-end">
+      <i class="bi bi-arrow-left"></i> Regresar
+    </button>
   </div>
-</div>
+</ng-template>

@@ -4,23 +4,36 @@ import { Observable } from 'rxjs';
 import { FotoNasa } from '../interfaces/fotoNasa.interface';
 import { environment } from '../../environments/environment.prod';
 import { formatDate } from '@angular/common';
-import localeES from "@angular/common/locales/es";
+import localeES from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
-registerLocaleData(localeES, "es");
+registerLocaleData(localeES, 'es');
 
 @Injectable({
   providedIn: 'root',
 })
 export class NasaService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   get httpParams() {
-    let fechaInicio = new Date()
-    fechaInicio.setDate(new Date().getDate() - 5)
-    let fechaFormateada = formatDate(fechaInicio, "YYYY-MM-dd", "es")
-    return new HttpParams().set('api_key', environment.apiKey).set("start_date", fechaFormateada).set("end_date", "");
+    let fechaInicio = new Date();
+    fechaInicio.setDate(new Date().getDate() - 5);
+    let fechaFormateada = formatDate(fechaInicio, 'YYYY-MM-dd', 'es');
+    return new HttpParams()
+      .set('api_key', environment.apiKey)
+      .set('start_date', fechaFormateada)
+      .set('end_date', '');
   }
 
   obtenerFotosNasa(): Observable<FotoNasa[]> {
-    return this.http.get<FotoNasa[]>(`${environment.apiUrl}`, { params: this.httpParams });
+    return this.http.get<FotoNasa[]>(`${environment.apiUrl}`, {
+      params: this.httpParams,
+    });
+  }
+
+  obtenerFotoNasa(fecha: string): Observable<FotoNasa> {
+    let params = new HttpParams()
+      .set('api_key', environment.apiKey)
+      .set('start_date', fecha)
+      .set('end_date', fecha);
+    return this.http.get<FotoNasa>(`${environment.apiUrl}`, { params: params });
   }
 }

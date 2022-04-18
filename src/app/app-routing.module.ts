@@ -10,7 +10,7 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: 'detalles/:title',
+    path: 'detalles/:date',
     component: DetalleComponent,
     canActivate: [ValidarRutaGuard],
     canLoad: [ValidarRutaGuard],

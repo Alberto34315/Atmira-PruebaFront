@@ -7,14 +7,16 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { TarjetaComponent } from './components/tarjeta/tarjeta.component';
+import { LoadSpinnerComponent } from './components/load-spinner/load-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     DetalleComponent,
-    TarjetaComponent
-  ],
+    TarjetaComponent,
+    LoadSpinnerComponent
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,
