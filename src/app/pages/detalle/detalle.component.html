@@ -1,5 +1,7 @@
-<div class="row row-cols-1 row-cols-lg-2 m-5">
-  <div *ngIf="(foto | json) == '{}'; then thenBlock; else elseBlock"></div>
+<div class="opaco border border-4 rounded p-3 mt-5">
+  <div class="row row-cols-1 row-cols-lg-2 m-5 ">
+    <div *ngIf="(foto | json) == '{}'; then thenBlock; else elseBlock"></div>
+  </div>
 </div>
 
 <ng-template #thenBlock>
@@ -12,9 +14,9 @@
   <div class="col">
     <img [src]="foto.url" class="img-fluid" />
   </div>
-  <div class="col">
+  <div class="col sombra">
     <h2>{{ foto.title }}</h2>
-    <span class="text-muted fw-bold">{{ foto.date }}</span>
+    <span class="fw-bold">{{ foto.date }}</span>
     <p>{{ foto.explanation }}</p>
 
     <button [routerLink]="['/']" class="btn btn-danger float-end">
