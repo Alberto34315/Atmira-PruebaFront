@@ -1,22 +1,20 @@
 <div
   class="card mt-5 animate__animated animate__zoomIn w-100"
-  style="width: 18rem"
 >
   <div class="row g-0 bg-secondary">
     <div class="col-md-7">
       <img
-        [src]="item.url"
+        [src]="foto.url"
         class="img-fluid rounded-start imgDashboard"
         alt="..."
       />
     </div>
     <div class="col-md-5">
       <div class="card-body">
-        <h5 class="card-title">{{ item.title }}</h5>
-        <h6 class="card-subtitle mb-2 ">{{ item.date }}</h6>
-        <a [routerLink]="['/detalles', item.date]"  class="btn btn-primary"
-          >Ver más...</a
-        >
+        <h5 class="card-title">{{ foto.title }}</h5>
+        <h6 class="card-subtitle mb-2 ">{{ foto.date }}</h6>
+        <button (click)="detalles(foto)"  class="btn btn-primary"
+          >Ver más...</button>
       </div>
     </div>
   </div>

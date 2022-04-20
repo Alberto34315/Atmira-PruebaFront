@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FotoNasa } from '../../interfaces/fotoNasa.interface';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
 import { NasaService } from '../../services/nasa.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalle',
@@ -11,31 +10,17 @@ import { NasaService } from '../../services/nasa.service';
 })
 export class DetalleComponent implements OnInit {
   foto: FotoNasa = {};
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private nasaService: NasaService
-  ) {}
+  constructor(private nasaService: NasaService,private router:Router) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params
-      .pipe(
-        map((element) => {
-          let fecha = Object.values(element);
-          return fecha[0];
-        })
-      )
-      .subscribe((resp) => {
-        this.nasaService
-          .obtenerFotoNasa(resp)
-          .pipe(
-            map((element) => {
-              let foto = Object.values(element);
-              return foto[0];
-            })
-          )
-          .subscribe((foto) => {
-            this.foto = foto;
-          });
-      });
+    this.cargarFoto();
+  }
+
+  cargarFoto() {    
+    if (!this.nasaService.existeFoto()) {
+     this.router.navigate(['/'])
+    } else {
+      this.foto = this.nasaService.devolverFoto()
+    }
   }
 }

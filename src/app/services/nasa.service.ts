@@ -36,4 +36,20 @@ export class NasaService {
       .set('end_date', fecha);
     return this.http.get<FotoNasa>(`${environment.apiUrl}`, { params: params });
   }
+
+  guardarFoto(foto: FotoNasa) {
+    localStorage.setItem('foto', JSON.stringify(foto));
+  }
+
+  existeFoto() {
+    let flag = false;
+    if (JSON.parse(String(localStorage.getItem('foto')))) {
+      flag = true;
+    }
+    return flag;
+  }
+
+  devolverFoto(): FotoNasa {
+    return JSON.parse(String(localStorage.getItem('foto')));
+  }
 }

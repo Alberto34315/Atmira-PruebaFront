@@ -17,10 +17,15 @@ body {
   width: 350px;
 }
 
-.sombra{
+.sombra {
   text-shadow: 2px 2px 4px #000000;
 }
 
-.opaco{
+.opaco {
   background-color: #91919170;
+}
+
+.tamañoSpinner {
+  width: 10rem;
+  height: 10rem;
 }
