@@ -1,4 +1,11 @@
-<div class="spinner-border tamañoSpinner"  role="status">
+<div *ngIf="mostrarLoad; then thenBlock; else elseBlock"></div>
+  
+<ng-template #thenBlock>
+  <div class="spinner-border tamañoSpinner"  role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
-  
+</ng-template>
+
+<ng-template #elseBlock>
+ <h2 class="sombra">Ha ocurrido un error con el servidor, por favor recargue la página.</h2>
+</ng-template>
